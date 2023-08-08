@@ -1,0 +1,34 @@
+
+PUBLICACIÓN: 
+
+¿PUEDEN LAS IMÁGENES SATELITALES SER UTILIZADAS PARA CLASIFICAR Y DISTINGUIR ENTRE GÉNEROS Y ESPECIES FORESTALES? 
+Autores: Ivan N. INSUA , Matías Carlos GAUTE.  2022.
+App: https://mgaute14.users.earthengine.app/view/clasificacionnea202220212020
+Assets:
+clasificacion_misiones_2022 = ee.Image("users/iinsua/Misiones_S2_principales");
+clasificacion_corrientes_2022 = ee.Image("users/iinsua/S2_Corrientes_ultimo");
+clasificacion_entrerios_2022 = ee.Image("users/iinsua/S2_EntreRios_nuevooo");
+
+Acceso a clasificaciones automáticas
+############################################################################
+import ee
+from ee_plugin import Map     
+#Assets
+clasificacion_misiones_2022 = ee.Image("users/iinsua/Misiones_S2_principales");
+landcoverVis = {
+  'min': 1,
+  'max': 5,
+  'palette': ['fa0000','f1ff08','15da14','00d0cf','b61569']}
+Map.addLayer(clasificacion_misiones_2022, landcoverVis,"Especies forestales Misiones 2022");
+
+Acceso a clasificaciones automáticas
+import ee
+from ee_plugin import Map     
+imagen = ee.ImageCollection('COPERNICUS/S2')\
+.filterDate('2023-06-01', '2023-07-25').median ()\
+.divide (10000). visualize (**{'bands': ['B8', 'B11', 'B4'], 'min': 0.0,'max': 0.4})
+Map.addLayer(imagen, {}, 'sentinel_2_fecha_actual_2023')
+imagen = ee.ImageCollection('COPERNICUS/S2')\
+.filterDate('2020-07-01', '2020-08-25').median ()\
+.divide (10000). visualize (**{'bands': ['B8', 'B11', 'B4'], 'min': 0.0,'max': 0.4})
+Map.addLayer(imagen, {}, 'sentinel_2_fecha_anterior')
