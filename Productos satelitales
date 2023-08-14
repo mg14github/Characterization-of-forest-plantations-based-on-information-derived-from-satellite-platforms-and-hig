@@ -4,10 +4,21 @@ PUBLICACIÓN:
 ¿PUEDEN LAS IMÁGENES SATELITALES SER UTILIZADAS PARA CLASIFICAR Y DISTINGUIR ENTRE GÉNEROS Y ESPECIES FORESTALES? 
 Autores: Ivan N. INSUA , Matías Carlos GAUTE.  2022.
 App: https://mgaute14.users.earthengine.app/view/clasificacionnea202220212020
-Assets:
+
+Assets 2022:
 clasificacion_misiones_2022 = ee.Image("users/iinsua/Misiones_S2_principales");
 clasificacion_corrientes_2022 = ee.Image("users/iinsua/S2_Corrientes_ultimo");
 clasificacion_entrerios_2022 = ee.Image("users/iinsua/S2_EntreRios_nuevooo");
+
+//Assets 2021
+var clasificacion_misiones_2021 = ee.Image("users/iinsua/Matias_Misiones_2021");
+var clasificacion_corrientes_2021 = ee.Image("users/iinsua/Matias_Corrientes_2021");
+var clasificacion_entrerios_2021 = ee.Image("users/iinsua/Matias_EntreRios_2021");
+
+//Assets 2020
+var clasificacion_misiones_2020 = ee.Image("users/iinsua/Matias_Misiones_2020");
+var clasificacion_corrientes_2020 = ee.Image("users/iinsua/Matias_Corrientes_2020");
+var clasificacion_entrerios_2020 = ee.Image("users/iinsua/Matias_EntreRios_2020");
 
 Acceso a clasificaciones automáticas
 ############################################################################
