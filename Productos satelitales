@@ -1,21 +1,30 @@
 
-PUBLICACIÓN: 
 
-¿PUEDEN LAS IMÁGENES SATELITALES SER UTILIZADAS PARA CLASIFICAR Y DISTINGUIR ENTRE GÉNEROS Y ESPECIES FORESTALES? 
-Autores: Ivan N. INSUA , Matías Carlos GAUTE.  2022.
-App: https://mgaute14.users.earthengine.app/view/clasificacionnea202220212020
+##############################################################################
+#Como utilizar Google Earth Engine en QGIS
+#Ver instrucciones: 
 
-##Assets 2021
+#https://gee-community.github.io/qgis-earthengine-plugin/
+
+#############################################################################
+
+#####PUBLICACIÓN:############################################################3 
+
+#¿PUEDEN LAS IMÁGENES SATELITALES SER UTILIZADAS PARA CLASIFICAR Y DISTINGUIR ENTRE GÉNEROS Y ESPECIES FORESTALES? 
+#Autores: Ivan N. INSUA , Matías Carlos GAUTE.  2022.
+#App: https://mgaute14.users.earthengine.app/view/clasificacionnea202220212020
+
+#Assets 2021
 var clasificacion_misiones_2021 = ee.Image("users/iinsua/Matias_Misiones_2021");
 var clasificacion_corrientes_2021 = ee.Image("users/iinsua/Matias_Corrientes_2021");
 var clasificacion_entrerios_2021 = ee.Image("users/iinsua/Matias_EntreRios_2021");
 
-##Assets 2020
+#Assets 2020
 var clasificacion_misiones_2020 = ee.Image("users/iinsua/Matias_Misiones_2020");
 var clasificacion_corrientes_2020 = ee.Image("users/iinsua/Matias_Corrientes_2020");
 var clasificacion_entrerios_2020 = ee.Image("users/iinsua/Matias_EntreRios_2020");
 
-##Acceso a clasificaciones automáticas
+#Acceso a clasificaciones automáticas
 ############################################################################
 import ee
 from ee_plugin import Map     
@@ -27,14 +36,14 @@ landcoverVis = {
   'palette': ['fa0000','f1ff08','15da14','00d0cf','b61569']}
 Map.addLayer(clasificacion_misiones_2022, landcoverVis,"Especies forestales Misiones 2022");
 
-##Acceso a clasificaciones automáticas
+#Acceso a imágenes Sentinel 2
 import ee
 from ee_plugin import Map     
-imagen = ee.ImageCollection('COPERNICUS/S2')\
+imagen = ee.ImageCollection('COPERNICUS/S2_SR_HARMONIZED')\
 .filterDate('2023-06-01', '2023-07-25').median ()\
 .divide (10000). visualize (**{'bands': ['B8', 'B11', 'B4'], 'min': 0.0,'max': 0.4})
 Map.addLayer(imagen, {}, 'sentinel_2_fecha_actual_2023')
-imagen = ee.ImageCollection('COPERNICUS/S2')\
+imagen = ee.ImageCollection('COPERNICUS/S2_SR_HARMONIZED')\
 .filterDate('2020-07-01', '2020-08-25').median ()\
 .divide (10000). visualize (**{'bands': ['B8', 'B11', 'B4'], 'min': 0.0,'max': 0.4})
 Map.addLayer(imagen, {}, 'sentinel_2_fecha_anterior')
