@@ -37,6 +37,7 @@ landcoverVis = {
 Map.addLayer(clasificacion_misiones_2022, landcoverVis,"Especies forestales Misiones 2022");
 
 #Acceso a imágenes Sentinel 2
+##############################################################################
 import ee
 from ee_plugin import Map     
 imagen = ee.ImageCollection('COPERNICUS/S2_SR_HARMONIZED')\
